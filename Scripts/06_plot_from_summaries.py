@@ -22,8 +22,6 @@ flood_summary = pd.read_parquet("./Results/flood_intensity_magnitude_duration_su
 
 
 #---------------------------------------------------------------------------------------------#
-#How will extreme high flows (floods) evolve under different RCP scenarios?
-
 #Compute historical medians per station
 
 # Filter historical floods
@@ -215,7 +213,7 @@ plot_flood_metrics_by_season(flood_summary_norm, save_path = os.path.join(outdir
 srex_gdf = gpd.read_file("./data/IPCC-WGI-reference-regions-v4_shapefile/IPCC-WGI-reference-regions-v4.shp")
 srex_gdf = srex_gdf.to_crs('EPSG:4326')
 
-# Step 1: Aggregate median relative flood metrics by SREX region and scenario
+# Aggregate median relative flood metrics by SREX region and scenario
 flood_region_summary = (
     flood_summary_norm
     .groupby(['Name', 'scenario'])
@@ -237,7 +235,7 @@ flood_region_summary['scenario'] = flood_region_summary['scenario'].replace({
 
 
 
-# Step 2: Merge with SREX geometry
+# Merge with SREX geometry
 srex_with_flood_metrics = srex_gdf.merge(flood_region_summary, on=['Name'], how='left')
 
 
@@ -358,7 +356,6 @@ heatmap_magnitude = flood_region_summary.pivot(index='Name', columns='scenario',
 heatmap_intensity = flood_region_summary.pivot(index='Name', columns='scenario', values='rel_intensity_median')
 
 
-# Optional: Set font scale for readability
 sns.set(font_scale=0.9)
 
 fig, axes = plt.subplots(3, 1, figsize=(14, 32), sharex=True)
@@ -431,7 +428,6 @@ drought_summary_norm['intensity_rel'] = drought_summary_norm['intensity'] / drou
 
 #---------------------------------------------------------------------------------------------#
 # Boxplots by scenario, resusing same flood function
-#How do flood dynamics change over time and season?
 
 def plot_drought_metric_by_time(df, save_path=None, dpi =300):
     metrics = [
