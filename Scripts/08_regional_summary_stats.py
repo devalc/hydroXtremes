@@ -68,7 +68,7 @@ flood_region_summary = flood_region_summary[flood_region_summary['scenario'] != 
 #---------------------------------------------------------------------------------------------#
 # Regional summaries      
 
-def summarize_top_bottom(df, metric, output_dir='Results/summary_stats/region_summaries'):
+def summarize_top_bottom(df, metric, output_dir='Results/summary_stats/region_summaries_flood'):
     os.makedirs(output_dir, exist_ok=True)
 
     for scenario in ['hist', 'rcp4p5', 'rcp8p5']:
