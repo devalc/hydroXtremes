@@ -1,8 +1,4 @@
 scenario,time_period,season,Median,75th Percentile
-hist,historical,DJF,0.0% (0.0 cfs/week),47.0% (0.01 cfs/week)
-hist,historical,JJA,0.0% (0.0 cfs/week),50.0% (0.01 cfs/week)
-hist,historical,MAM,0.0% (0.0 cfs/week),44.0% (0.015 cfs/week)
-hist,historical,SON,0.0% (0.0 cfs/week),56.0% (0.02 cfs/week)
 rcp4p5,early,DJF,20.0% (0.0 cfs/week),140.0% (0.105 cfs/week)
 rcp4p5,early,JJA,11.0% (0.0 cfs/week),125.0% (0.05 cfs/week)
 rcp4p5,early,MAM,16.0% (0.0 cfs/week),108.0% (0.08 cfs/week)

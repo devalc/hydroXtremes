@@ -1,5 +1,4 @@
 scenario,time_period,Median,75th Percentile
-hist,historical,0.0 % (0.0 cfs),62.0 % (0.03 cfs)
 rcp4p5,early,42.0 % (0.01 cfs),167.0 % (0.24 cfs)
 rcp4p5,mid,65.0 % (0.015 cfs),212.0 % (0.34 cfs)
 rcp4p5,end,75.0 % (0.02 cfs),234.0 % (0.4 cfs)

@@ -1,5 +1,4 @@
 scenario,time_period,Median,75th Percentile
-hist,historical,0.0 % (0.0 cfs/week),64.0 % (0.02 cfs/week)
 rcp4p5,early,23.0 % (0.0 cfs/week),133.0 % (0.095 cfs/week)
 rcp4p5,mid,33.0 % (0.0 cfs/week),160.0 % (0.12 cfs/week)
 rcp4p5,end,40.0 % (0.005 cfs/week),173.0 % (0.135 cfs/week)

@@ -1,8 +1,4 @@
 scenario,time_period,season,Median,75th Percentile
-hist,historical,DJF,0.0% (0.0 weeks),0.0% (0.0 weeks)
-hist,historical,JJA,0.0% (0.0 weeks),0.0% (0.0 weeks)
-hist,historical,MAM,0.0% (0.0 weeks),0.0% (0.0 weeks)
-hist,historical,SON,0.0% (0.0 weeks),0.0% (0.0 weeks)
 rcp4p5,early,DJF,0.0% (0.0 weeks),100.0% (1.0 weeks)
 rcp4p5,early,JJA,0.0% (0.0 weeks),100.0% (1.0 weeks)
 rcp4p5,early,MAM,0.0% (0.0 weeks),100.0% (1.0 weeks)

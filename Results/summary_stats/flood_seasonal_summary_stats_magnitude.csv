@@ -1,8 +1,4 @@
 scenario,time_period,season,Median,75th Percentile
-hist,historical,DJF,0.0% (0.0 cfs),66.0% (0.525 cfs)
-hist,historical,JJA,0.0% (0.0 cfs),61.0% (1.335 cfs)
-hist,historical,MAM,0.0% (0.0 cfs),63.0% (0.72 cfs)
-hist,historical,SON,0.0% (0.0 cfs),57.0% (1.04 cfs)
 rcp4p5,early,DJF,41.0% (0.1 cfs),184.0% (1.27 cfs)
 rcp4p5,early,JJA,42.0% (0.12 cfs),184.0% (3.9 cfs)
 rcp4p5,early,MAM,36.0% (0.08 cfs),167.0% (1.865 cfs)
