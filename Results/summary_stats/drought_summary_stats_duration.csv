@@ -1,0 +1,8 @@
+scenario,time_period,Median,75th Percentile
+hist,historical,0.0 % (0.0 weeks),50.0 % (1.0 weeks)
+rcp4p5,early,0.0 % (0.0 weeks),100.0 % (1.0 weeks)
+rcp4p5,mid,0.0 % (0.0 weeks),100.0 % (2.0 weeks)
+rcp4p5,end,0.0 % (0.0 weeks),100.0 % (2.0 weeks)
+rcp8p5,early,0.0 % (0.0 weeks),100.0 % (1.5 weeks)
+rcp8p5,mid,0.0 % (0.0 weeks),100.0 % (2.0 weeks)
+rcp8p5,end,38.0 % (1.0 weeks),200.0 % (3.0 weeks)
