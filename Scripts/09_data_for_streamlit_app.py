@@ -10,7 +10,7 @@ import pandas as pd
 import os
 
 # Output directory for Streamlit app
-outdir = './Results/for_app/'
+outdir =  './app/data/'
 os.makedirs(outdir, exist_ok=True)
 
 # Load data
