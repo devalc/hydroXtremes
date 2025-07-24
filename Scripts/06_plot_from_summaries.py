@@ -76,11 +76,13 @@ def plot_flood_metric_by_time(df, save_path=None,  dpi =300):
     all_handles = []
     all_labels = []
 
+    palette = {'RCP4.5': '#e1be6a', 'RCP8.5': '#40b0a6'}
+
     for i, (ax, (metric, ylabel)) in enumerate(zip(axes, metrics)):
         # Create boxplot (legend is created here temporarily)
         sns.boxplot(
             data=df, x='time_period', y=metric, hue='scenario',
-            ax=ax, showfliers=False, dodge=True
+            ax=ax, showfliers=False, dodge=True, palette=palette
         )
 
         # Add baseline line
@@ -105,13 +107,15 @@ def plot_flood_metric_by_time(df, save_path=None,  dpi =300):
         ax.set_yscale('log')
         ax.set_xlabel('')
         ax.set_ylabel('')
-        ax.set_title(['(a) Duration', '(b) Magnitude', '(c) Intensity'][i])
+        ax.set_title(['(a) Duration', '(b) Magnitude', '(c) Intensity'][i], fontsize = 18)
         ax.grid(True, which='both', linestyle='--', alpha=0.5)
+        ax.tick_params(axis='x', labelsize=16)
+        ax.tick_params(axis='y', labelsize=16)
 
     # axes[-1].set_xlabel('Time Period')
 
     # Add the one shared global legend
-    fig.legend(all_handles, all_labels, loc='lower center', bbox_to_anchor=(0.5, 1.01), ncol=4, fontsize=10)
+    fig.legend(all_handles, all_labels, loc='lower center', bbox_to_anchor=(0.5, 1.01), ncol=4, fontsize=14)
 
     plt.tight_layout(rect=[0, 0, 1, 0.95])  # Leave space for legend
     
@@ -154,7 +158,8 @@ def plot_flood_metrics_by_season(df, save_path=None,  dpi =300):
     })
 
     # Set up subplots: 3 rows (metrics) x 4 cols (seasons)
-    fig, axes = plt.subplots(3, 4, figsize=(20, 12), sharey='row')
+    fig, axes = plt.subplots(3, 4, figsize=(20, 12), sharey='row', sharex = True)
+    palette = {'RCP4.5': '#e1be6a', 'RCP8.5': '#40b0a6'}
 
     for row_idx, (metric, ylabel) in enumerate(metrics):
         for col_idx, season in enumerate(season_order):
@@ -168,7 +173,7 @@ def plot_flood_metrics_by_season(df, save_path=None,  dpi =300):
                 hue='scenario',
                 ax=ax,
                 showfliers=False,
-                dodge=True
+                dodge=True, palette=palette
             )
 
             ax.axhline(1, color='red', linestyle='--', label='Historical Baseline')
@@ -177,7 +182,7 @@ def plot_flood_metrics_by_season(df, save_path=None,  dpi =300):
 
             # Labeling
             if col_idx == 0:
-                ax.set_ylabel(ylabel)
+                ax.set_ylabel(ylabel, fontsize =16)
             else:
                 ax.set_ylabel('')
 
@@ -187,7 +192,7 @@ def plot_flood_metrics_by_season(df, save_path=None,  dpi =300):
                 ax.set_xlabel('')
 
             if row_idx == 0:
-                ax.set_title(f'{season}')
+                ax.set_title(f'{season}', fontsize =16)
 
             # Remove subplot legends
             if ax.get_legend():
@@ -241,7 +246,7 @@ srex_with_flood_metrics = srex_gdf.merge(flood_region_summary, on=['Name'], how=
 
 # Plot settings
 vmin, vmax = 0.5, 2.5
-cmap = 'inferno_r'
+cmap = 'plasma_r'
 scenarios = flood_region_summary['scenario'].unique()
 
 fig, axes = plt.subplots(3, len(scenarios), figsize=(16, 9),
@@ -453,11 +458,13 @@ def plot_drought_metric_by_time(df, save_path=None, dpi =300):
     all_handles = []
     all_labels = []
 
+    palette = {'RCP4.5': '#e1be6a', 'RCP8.5': '#40b0a6'}
+
     for i, (ax, (metric, ylabel)) in enumerate(zip(axes, metrics)):
         # Create boxplot (legend is created here temporarily)
         sns.boxplot(
             data=df, x='time_period', y=metric, hue='scenario',
-            ax=ax, showfliers=False, dodge=True
+            ax=ax, showfliers=False, dodge=True, palette=palette
         )
 
         # Add baseline line
@@ -482,13 +489,15 @@ def plot_drought_metric_by_time(df, save_path=None, dpi =300):
         ax.set_yscale('log')
         ax.set_xlabel('')
         ax.set_ylabel('')
-        ax.set_title(['(a) Duration', '(b) Magnitude', '(c) Intensity'][i])
+        ax.set_title(['(a) Duration', '(b) Magnitude', '(c) Intensity'][i], fontsize =18)
         ax.grid(True, which='both', linestyle='--', alpha=0.5)
+        ax.tick_params(axis='x', labelsize=16)
+        ax.tick_params(axis='y', labelsize=16)
 
     # axes[-1].set_xlabel('Time Period')
 
     # Add the one shared global legend
-    fig.legend(all_handles, all_labels, loc='lower center', bbox_to_anchor=(0.5, 1.01), ncol=4, fontsize=10)
+    fig.legend(all_handles, all_labels, loc='lower center', bbox_to_anchor=(0.5, 1.01), ncol=4, fontsize=18)
 
     plt.tight_layout(rect=[0, 0, 1, 0.95])  # Leave space for legend
     
@@ -497,7 +506,7 @@ def plot_drought_metric_by_time(df, save_path=None, dpi =300):
         
     plt.show()
 
-
+sns.set_style("whitegrid")
 plot_drought_metric_by_time(drought_summary_norm, save_path = os.path.join(outdir, 'Figure4.png'))
 
 
@@ -526,7 +535,8 @@ def plot_drought_metrics_by_season(df, save_path=None, dpi =300):
     })
 
     # Set up subplots: 3 rows (metrics) x 4 cols (seasons)
-    fig, axes = plt.subplots(3, 4, figsize=(20, 12), sharey='row')
+    fig, axes = plt.subplots(3, 4, figsize=(20, 12), sharey='row', sharex=True)
+    palette = {'RCP4.5': '#e1be6a', 'RCP8.5': '#40b0a6'}
 
     for row_idx, (metric, ylabel) in enumerate(metrics):
         for col_idx, season in enumerate(season_order):
@@ -540,16 +550,19 @@ def plot_drought_metrics_by_season(df, save_path=None, dpi =300):
                 hue='scenario',
                 ax=ax,
                 showfliers=False,
-                dodge=True
+                dodge=True,
+                palette=palette
             )
 
             ax.axhline(1, color='red', linestyle='--', label='Historical Baseline')
             ax.set_yscale('log')
             ax.grid(True, which='both', linestyle='--', alpha=0.5)
+            ax.tick_params(axis='x', labelsize=16)
+            ax.tick_params(axis='y', labelsize=16)
 
             # Labeling
             if col_idx == 0:
-                ax.set_ylabel(ylabel)
+                ax.set_ylabel(ylabel, fontsize = 16)
             else:
                 ax.set_ylabel('')
 
@@ -559,7 +572,7 @@ def plot_drought_metrics_by_season(df, save_path=None, dpi =300):
                 ax.set_xlabel('')
 
             if row_idx == 0:
-                ax.set_title(f'{season}')
+                ax.set_title(f'{season}', fontsize =16)
 
             # Remove subplot legends
             if ax.get_legend():
@@ -608,7 +621,7 @@ srex_with_drought_metrics = srex_gdf.merge(drought_region_summary, on='Name', ho
 
 # Plot settings
 vmin, vmax = 0.0, 3.6
-cmap = 'inferno_r'
+cmap = 'plasma_r'
 scenarios = drought_region_summary['scenario'].unique()
 
 fig, axes = plt.subplots(3, len(scenarios), figsize=(16, 9),
